@@ -59,17 +59,18 @@ public class Day2 : IDays
 				//Test si le prochain level dans le rapport a un écart de + de TROIS avec le précédent.
 
 			}
-
+			//j'incrémente le compteur de rapports safe si le rapport actuel est safe
 			if (isSafe)
 			{
 				safeCount++;
 			}
+			//je reset les variables pour le prochain rapport
 			increasing = true;
 			decreasing= true;
 			isSafe= true;
 		}
 
-		//Je souhaite tester si le prochain level dans le rapport a un écart de + de TROIS avec le précédent.
+		//Je retourne le resultat (Le nombre de rapports safe)
 		return "Day 2 Part 1's result: " + safeCount;
 	}
 
