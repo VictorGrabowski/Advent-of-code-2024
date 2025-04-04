@@ -3,3 +3,5 @@
 IDays Day2 = new Day2();
 Console.WriteLine(Day2.Part1());
 Console.WriteLine(Day2.Part2());
+IDays Day3 = new Day3();
+Console.WriteLine(Day3.Part1());
