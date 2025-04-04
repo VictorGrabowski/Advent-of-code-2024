@@ -75,6 +75,102 @@ public class Day2 : IDays
 
 public string Part2()
 	    {
-	        return "Day 2 Part 2's result: ";
+		    //declaring useful variables
+		    var safeReportCount = 0;
+		    var isSafe = true;
+		    var increasing = true;
+		    var decreasing = true;
+		    int[] acceptedDifferencesForIncreasing = [-1, -2, -3];
+		    int[] acceptedDifferencesForDecreasing = [1, 2, 3];
+		    var extraLife = true;
+		    //Going through each report
+		    foreach (var report in _reports)
+		    {
+			    //Splitting the report into levels
+			    var levels = report.Split(" ");
+			    //going through each level
+			    for (var i = 0; i < levels.Length; i++)
+			    {
+				    //Si on est au dernier level, on sort de la boucle
+				    if (i == levels.Length - 1)
+				    {
+					    break;
+				    }
+				    //Calcul de la différence entre le level actuel et le prochain
+				    var diff = int.Parse(levels[i])- int.Parse(levels[i + 1]);
+				    //teste si on est dans un report increasing
+				    if (increasing)
+				    {
+					    //Si la différence n'est pas dans la liste des différences acceptées pour increasing, alors on sort de la boucle
+					    //(Les valeurs négatives sont les seules à être acceptées, car on soustrait le prochain level à l'actuel.)
+					    if (!acceptedDifferencesForIncreasing.Contains(diff))
+					    {
+						    if (i == levels.Length - 2)
+                            {
+	                            if (!extraLife)
+	                            {
+		                            increasing = false;
+	                            }
+                            }
+						    else
+						    {
+							    diff = int.Parse(levels[i]) - int.Parse(levels[i + 2]);
+							    if(!acceptedDifferencesForIncreasing.Contains(diff))
+									increasing = false;
+							    else
+							    {
+								    i++;
+							    }
+							    extraLife = false;
+						    }
+					    }
+				    }
+				    //teste si on est dans un report decreasing
+				    if (decreasing)
+				    {
+					    if (!acceptedDifferencesForDecreasing.Contains(diff))
+					    {
+						    if (i == levels.Length - 2)
+						    {
+							    if (!extraLife)
+							    {
+								    decreasing = false;
+							    }
+						    }
+						    else
+						    {
+							    diff = int.Parse(levels[i]) - int.Parse(levels[i + 2]);
+							    if(!acceptedDifferencesForDecreasing.Contains(diff))
+								    decreasing = false;
+							    else
+							    {
+								    i++;
+							    }
+							    extraLife = false;
+						    }
+					    }
+				    }
+				    //Si on est ni dans un report increasing ni dans un report decreasing, alors le report n'est pas safe.
+				    if (!decreasing && !increasing)
+				    {
+					    isSafe = false;
+				    }
+			
+				    //Test si le prochain level dans le rapport a un écart de + de TROIS avec le précédent.
+
+			    }
+			    //j'incrémente le compteur de rapports safe si le rapport actuel est safe
+			    if (isSafe)
+			    {
+				    safeReportCount++;
+			    }
+			    //je reset les variables pour le prochain rapport
+			    increasing = true;
+			    decreasing= true;
+			    isSafe= true;
+		    }
+
+		    //Je retourne le resultat (Le nombre de rapports safe)
+	        return "Day 2 Part 2's result: "+safeReportCount;
 	    }
 }
