@@ -17,23 +17,23 @@ public class Day3 : IDays
 	private readonly string[] calculsToDo = INPUT.Split(",");
 	public string Part1()
 	{
-		int total = 0;
+		int result = 0;
 		foreach (var calcul in INPUT.Split("|"))
 		{
 			string[] numbers= calcul.Split(",");
 			//Je fais la multiplication de chaque calcul
-			int result = int.Parse(numbers[0]) * int.Parse(numbers[1]);
-			total+= result;
+			int multiplicationResult = int.Parse(numbers[0]) * int.Parse(numbers[1]);
+			result+= multiplicationResult;
 		}
 		//Je retourne le résultat (la somme de toutes les multiplications non corrompues.) :D
-		return "Day 3 Part 1's result: "+ total ;
+		return "Day 3 Part 1's result: "+ result ;
 	}
 
 public string Part2()
 {
-	string resDay3 = "";
-		   
-		    //Je retourne le resultat (Le nombre de rapports safe)
-		    return "Day 2 Part 2's result: " + resDay3;
+	string result = "";
+	
+		    //Je retourne le résultat
+		    return "Day 4 Part 2's not done yet";
 }
 }
