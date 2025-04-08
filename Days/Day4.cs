@@ -42,11 +42,15 @@ public class Day4 : IDays
 		//Example:
 		//Second example:
 		//SAMXMAS has 2 time the word XMAS, one time in the the right order and another time in the reverse order.
+		
+		
+		//For the coordinate of the X, Search in every possible direction for the following letters in this particular order: [M.A.S]
+		//Be careful with borders of the grid, we must not go out of the grid.
 		char[] word = { 'M', 'A', 'S' };
 		//i must check if the word is in the line
 		try
 		{
-			if (table[x + 1][y] == 'M' && table[x + 2][y] == 'A' && table[x + 3][y] == 'S')
+			if (table[x + 1][y] == word[0] && table[x + 2][y] == word[1] && table[x + 3][y] == word[2])
 			{
 				cpt++;
 			}
@@ -58,7 +62,7 @@ public class Day4 : IDays
 
 		try
 		{
-			if (table[x - 1][y] == 'M' && table[x - 2][y] == 'A' && table[x - 3][y] == 'S')
+			if (table[x - 1][y] == word[0] && table[x - 2][y] == word[1] && table[x - 3][y] == word[2])
 			{
 				cpt++;
 			}
@@ -69,7 +73,7 @@ public class Day4 : IDays
 		}
 
 		try{
-			if (table[x][y + 1] == 'M' && table[x][y + 2] == 'A' && table[x][y + 3] == 'S')
+			if (table[x][y + 1] == word[0] && table[x][y + 2] == word[1] && table[x][y + 3] == word[2])
 			{
 				cpt++;
 			}
@@ -79,7 +83,7 @@ public class Day4 : IDays
 		}
 
 		try{
-			if (table[x][y - 1] == 'M' && table[x][y - 2] == 'A' && table[x][y - 3] == 'S')
+			if (table[x][y - 1] == word[0] && table[x][y - 2] == word[1] && table[x][y - 3] == word[2])
 			{
 				cpt++;
 			}
@@ -89,7 +93,7 @@ public class Day4 : IDays
 		}
 
 		try{
-			if (table[x + 1][y + 1] == 'M' && table[x + 2][y + 2] == 'A' && table[x + 3][y + 3] == 'S')
+			if (table[x + 1][y + 1] == word[0] && table[x + 2][y + 2] == word[1] && table[x + 3][y + 3] == word[2])
 			{
 				cpt++;
 			}
@@ -99,7 +103,7 @@ public class Day4 : IDays
 		}
 
 		try{
-			if (table[x - 1][y - 1] == 'M' && table[x - 2][y - 2] == 'A' && table[x - 3][y - 3] == 'S')
+			if (table[x - 1][y - 1] == word[0] && table[x - 2][y - 2] == word[1] && table[x - 3][y - 3] == word[2])
 			{
 				cpt++;
 			}
@@ -109,7 +113,7 @@ public class Day4 : IDays
 		}
 
 		try{
-			if (table[x + 1][y - 1] == 'M' && table[x + 2][y - 2] == 'A' && table[x + 3][y - 3] == 'S')
+			if (table[x + 1][y - 1] == word[0] && table[x + 2][y - 2] == word[1] && table[x + 3][y - 3] == word[2])
 			{
 				cpt++;
 			}
@@ -119,7 +123,7 @@ public class Day4 : IDays
 		}
 
 		try{
-			if (table[x - 1][y + 1] == 'M' && table[x - 2][y + 2] == 'A' && table[x - 3][y + 3] == 'S')
+			if (table[x - 1][y + 1] == word[0] && table[x - 2][y + 2] == word[1] && table[x - 3][y + 3] == word[2])
 			{
 				cpt++;
 			}
@@ -129,8 +133,7 @@ public class Day4 : IDays
 		}
 
 		return cpt;
-		//For the coordinate of the X, Search in every possible direction for the following letters in this particular order: [M.A.S]
-		//Be careful with borders of the grid, we must not go out of the grid.
+
 	}
 
 public string Part2()
