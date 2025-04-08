@@ -13,13 +13,12 @@ public class Day4 : IDays
 			{
 				if (lines[x][y] == 'X')
 				{
-					Console.WriteLine("Found X at: x:" + x + ", y:" + y);
+					// Console.WriteLine("Found X at: x:" + x + ", y:" + y);
 					//Call the function to search for XMAS
 					result += SearchForXMAS(x, y, lines);
 				}
 			}
 		}
-		Console.WriteLine(lines[139]);
 		//Not the willing to do it today but will try to take a guess as how i'll do it:
 		//Split input file into lines (.Split("\n");
 		//Then Create a function that searchs for the word XMAS in all directions starting from an X

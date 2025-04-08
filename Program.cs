@@ -9,3 +9,6 @@ Console.WriteLine(Day3.Part1());
 
 IDays Day4 = new Day4();
 Console.WriteLine(Day4.Part1());
+
+IDays frend_sDay4 = new Frend_sDay4();
+Console.WriteLine(frend_sDay4.Part1());
